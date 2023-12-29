@@ -1,4 +1,3 @@
-
 package ru.SVTsygankov.securityREST.configs;
 
 import org.springframework.context.annotation.Bean;
@@ -12,15 +11,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import ru.SVTsygankov.securityREST.details.UserDetailsServiceImp;
 
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
- //   private final SuccessUserHandler successUserHandler;
+    private final SuccessUserHandler successUserHandler;
     private UserDetailsServiceImp userService;
 
 
-    public SecurityConfig(UserDetailsServiceImp userService) {
- //       this.successUserHandler = successUserHandler;
+    public SecurityConfig(UserDetailsServiceImp userService, SuccessUserHandler successUserHandler) {
+        this.successUserHandler = successUserHandler;
         this.userService = userService;
     }
 
@@ -35,8 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
-            //    .formLogin().successHandler(successUserHandler).permitAll()
-            //    .and()
+                .formLogin().successHandler(successUserHandler).permitAll()
+                .and()
                 .logout().permitAll();
     }
 
