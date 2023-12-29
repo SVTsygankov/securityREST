@@ -1,3 +1,4 @@
+/*
 package ru.SVTsygankov.securityREST.controller;
 
 import org.springframework.stereotype.Controller;
@@ -52,3 +53,4 @@ public class AdminController {
         return "redirect:/admin";
     }
 }
+*/

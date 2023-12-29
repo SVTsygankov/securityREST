@@ -1,3 +1,4 @@
+/*
 package ru.SVTsygankov.securityREST.configs;
 
 import org.springframework.security.core.Authentication;
@@ -28,3 +29,5 @@ public class SuccessUserHandler implements AuthenticationSuccessHandler{
         }
     }
 }
+
+ */

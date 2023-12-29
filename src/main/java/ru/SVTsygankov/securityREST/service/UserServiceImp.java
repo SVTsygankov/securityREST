@@ -8,6 +8,7 @@ import ru.SVTsygankov.securityREST.model.User;
 import ru.SVTsygankov.securityREST.repository.UsersRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImp implements UserService {

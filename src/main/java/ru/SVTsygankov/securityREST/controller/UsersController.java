@@ -1,3 +1,4 @@
+/*
 package ru.SVTsygankov.securityREST.controller;
 
 import org.springframework.stereotype.Controller;
@@ -30,3 +31,4 @@ public class UsersController {
         return "user/user_profile";
     }
 }
+*/

@@ -11,7 +11,7 @@ import ru.SVTsygankov.securityREST.repository.RolesRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class DatabaseInitializer implements ApplicationListener<ContextRefreshedEvent> {
 
     private final RolesRepository roleRepository;
