@@ -1,5 +1,7 @@
 package ru.SVTsygankov.securityREST.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.Column;
@@ -12,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,17 +28,26 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "email")
+    @Email(message = "Email должен быть правильным")
+    @Column(name = "email", unique=true)
     private String email;
 
+    @NotEmpty(message = "Password не должен быть пустым")
+    @Size(min = 8, max = 64, message = "Password должен быть от 8 до 64 символов")
+    @Column(name = "password")
     private String password;
 
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 30, message = "Имя должно быть от 2 ло 30 символов")
     @Column(name = "firstname")
     private String firstName;
 
+    @NotEmpty(message = "Фамилия не должна быть пустой")
+    @Size(min = 2, max = 30, message = "Фамилия должна быть от 2 ло 30 символов")
     @Column(name = "lastname")
     private String lastName;
 
+    @Min(value = 0, message = "Возраст должен быть положительным и не больше 127 лет.")
     @Column(name = "age")
     private Byte age;
 
@@ -156,5 +169,11 @@ public class User implements UserDetails {
                 ", roles=" + roles +
                 '}';
 
+    }
+    public String rolesToString() {
+        String role = "";
+        for (Role r : roles)
+            role = role + " " + r.toString();
+        return role;
     }
 }

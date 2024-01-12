@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.SVTsygankov.securityREST.service.UserServiceImp;
 import ru.SVTsygankov.securityREST.model.User;
+
 @Service
 @Transactional
 public class UserDetailsServiceImp implements UserDetailsService {

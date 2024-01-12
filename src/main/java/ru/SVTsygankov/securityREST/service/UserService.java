@@ -7,6 +7,8 @@ import java.util.List;
 public interface UserService {
     List<User> findAll();
 
+    User findUserById(Long id);
+
     User findByUsername(String email);
 
     boolean deleteUser(Long id);

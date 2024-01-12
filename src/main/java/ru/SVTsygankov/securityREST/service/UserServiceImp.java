@@ -1,6 +1,7 @@
 package ru.SVTsygankov.securityREST.service;
 
 import org.springframework.context.annotation.Lazy;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -39,6 +40,14 @@ public class UserServiceImp implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;
+    }
+
+    @Override
+    public User findUserById(Long id) {
+        if (userRepository.findById(id).isEmpty()) {
+            throw new UsernameNotFoundException("Пользователь с таким ID не найден");
+        }
+        return userRepository.findById(id).get();
     }
 
     @Override
