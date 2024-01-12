@@ -14,7 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
@@ -170,5 +169,11 @@ public class User implements UserDetails {
                 ", roles=" + roles +
                 '}';
 
+    }
+    public String rolesToString() {
+        String role = "";
+        for (Role r : roles)
+            role = role + " " + r.toString();
+        return role;
     }
 }

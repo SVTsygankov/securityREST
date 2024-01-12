@@ -11,8 +11,8 @@ public class RoleServiceImp implements RoleService {
 
     private final RolesRepository rolesRepository;
 
-    public RoleServiceImp(RolesRepository roleRepository) {
-        this.rolesRepository = roleRepository;
+    public RoleServiceImp(RolesRepository rolesRepository) {
+        this.rolesRepository = rolesRepository;
     }
 
     @Override

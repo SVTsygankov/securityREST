@@ -11,17 +11,17 @@ import ru.SVTsygankov.securityREST.repository.RolesRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Component
+@Component
 public class DatabaseInitializer implements ApplicationListener<ContextRefreshedEvent> {
 
-    private final RolesRepository roleRepository;
+    private final RolesRepository rolesRepository;
     private final UsersRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public DatabaseInitializer(RolesRepository roleRepository,
+    public DatabaseInitializer(RolesRepository rolesRepository,
                                UsersRepository userRepository,
                                PasswordEncoder passwordEncoder) {
-        this.roleRepository = roleRepository;
+        this.rolesRepository = rolesRepository;
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
@@ -34,8 +34,8 @@ public class DatabaseInitializer implements ApplicationListener<ContextRefreshed
         Role role2 = new Role();
         role2.setRole("ROLE_ADMIN");
 
-        roleRepository.save(role1);
-        roleRepository.save(role2);
+        rolesRepository.save(role1);
+        rolesRepository.save(role2);
 
         List<Role> adminRoles = new ArrayList<>();
         adminRoles.add(role1);

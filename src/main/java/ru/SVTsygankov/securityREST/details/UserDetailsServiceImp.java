@@ -8,8 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.SVTsygankov.securityREST.service.UserServiceImp;
 import ru.SVTsygankov.securityREST.model.User;
 
-import java.util.Optional;
-
 @Service
 @Transactional
 public class UserDetailsServiceImp implements UserDetailsService {
